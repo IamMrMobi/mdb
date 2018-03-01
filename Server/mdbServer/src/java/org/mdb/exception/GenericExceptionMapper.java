@@ -5,9 +5,11 @@
  */
 package org.mdb.exception;
 
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
+import org.mdb.XmlSerializable;
 
 /**
  *
@@ -18,6 +20,12 @@ public class GenericExceptionMapper implements ExceptionMapper<Exception> {
 
     @Override
     public Response toResponse(Exception e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        ExceptionInfo info = ExceptionInfo.forException(e);
+        
+        return Response
+            .status(Response.Status.INTERNAL_SERVER_ERROR)
+            .type(MediaType.TEXT_XML)
+            .entity(XmlSerializable.getXmlStream().toXML(info))
+            .build();
     }
 }
