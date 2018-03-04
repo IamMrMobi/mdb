@@ -3,3 +3,8 @@
 /Server/mdbServer/dist/
 Server/mdbServer/nbproject/project.properties
 Server/mdbServer/nbproject/project.properties
+Server/mdbServer/nbproject/ant-deploy.xml
+Server/mdbServer/nbproject/build-impl.xml
+Server/mdbServer/nbproject/genfiles.properties
+Server/mdbServer/nbproject/project.properties
+Server/mdbServer/nbproject/project.xml
